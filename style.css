@@ -1,0 +1,141 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #0a0a0a;
+    color: #fff;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    padding: 40px;
+    flex-wrap: wrap;
+}
+
+.music,
+.winklinux {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.music {
+    gap: 28px;
+}
+
+.music p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+.music-logo {
+    height: 32px;
+    width: auto;
+    display: block;
+    filter: brightness(1.2);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.music-logo:hover {
+    transform: scale(1.08);
+    filter: brightness(1.6);
+}
+
+.cover {
+    display: block;
+    width: min(654px, 90vw);
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.08);
+    transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+}
+
+.cover:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 80px rgba(255, 255, 255, 0.18);
+    filter: brightness(1.08);
+}
+
+.winklinux {
+    gap: 20px;
+}
+
+.winklinux-logo {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 4px;
+}
+
+.winklinux-logo img {
+    height: 100px;
+    width: auto;
+    display: block;
+}
+
+.tm {
+    font-size: 12px;
+    line-height: 1;
+    opacity: 0.8;
+    transform: translateY(30px) translateX(-16px);
+}
+
+.winklinux p {
+    margin: 0;
+    font-size: 18px;
+    letter-spacing: 1px;
+    opacity: 0.85;
+}
+
+@media (max-width: 900px) {
+    .container {
+        gap: 48px;
+        padding: 24px;
+    }
+
+    .winklinux-logo img {
+        height: 80px;
+    }
+}
+
+.footer {
+    position: fixed;
+    bottom: 20px;
+    font-weight: 300;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 1px;
+    opacity: 0.6;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.7;
+    transition: 0.2s ease;
+}
+
+.footer a:hover {
+    opacity: 1;
+}
