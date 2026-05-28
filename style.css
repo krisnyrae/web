@@ -20,17 +20,127 @@ body {
 .background-glow {
     position: fixed;
     inset: 0;
+
+    overflow: hidden;
+
+    z-index: -2;
+
     background:
-            radial-gradient(circle at top left,
-            rgba(255,255,255,0.08),
-            transparent 30%),
+            radial-gradient(
+                    circle at 15% 20%,
+                    rgba(255,255,255,0.08),
+                    transparent 25%
+            ),
 
-            radial-gradient(circle at bottom right,
-            rgba(255,255,255,0.05),
-            transparent 30%);
+            radial-gradient(
+                    circle at 85% 30%,
+                    rgba(255,255,255,0.05),
+                    transparent 30%
+            ),
 
-    pointer-events: none;
-    z-index: -1;
+            radial-gradient(
+                    circle at 50% 80%,
+                    rgba(255,255,255,0.04),
+                    transparent 35%
+            ),
+
+            linear-gradient(
+                    to bottom,
+                    #050505,
+                    #080808,
+                    #050505
+            );
+
+    filter: blur(40px);
+
+    animation:
+            glowShift 18s ease-in-out infinite alternate;
+}
+
+.background-glow::before,
+.background-glow::after {
+    content: "";
+
+    position: absolute;
+
+    width: 60vw;
+    height: 60vw;
+
+    border-radius: 50%;
+
+    filter: blur(120px);
+
+    opacity: 0.12;
+
+    mix-blend-mode: screen;
+}
+
+.background-glow::before {
+    top: -10%;
+    left: -10%;
+
+    background:
+            radial-gradient(
+                    circle,
+                    rgba(255,255,255,0.18),
+                    transparent 70%
+            );
+
+    animation:
+            floatGlow1 22s ease-in-out infinite alternate;
+}
+
+.background-glow::after {
+    bottom: -20%;
+    right: -10%;
+
+    background:
+            radial-gradient(
+                    circle,
+                    rgba(255,255,255,0.12),
+                    transparent 70%
+            );
+
+    animation:
+            floatGlow2 28s ease-in-out infinite alternate;
+}
+
+@keyframes glowShift {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    100% {
+        transform: scale(1.08) rotate(2deg);
+    }
+}
+
+@keyframes floatGlow1 {
+    0% {
+        transform:
+                translate(0, 0)
+                scale(1);
+    }
+
+    100% {
+        transform:
+                translate(10%, 5%)
+                scale(1.2);
+    }
+}
+
+@keyframes floatGlow2 {
+    0% {
+        transform:
+                translate(0, 0)
+                scale(1);
+    }
+
+    100% {
+        transform:
+                translate(-10%, -5%)
+                scale(1.15);
+    }
 }
 
 /* hero */
@@ -195,6 +305,20 @@ body {
     opacity: 1;
     transform: translateY(-2px);
     transition: 0.5s;
+}
+
+.grain {
+    position: fixed;
+    inset: 0;
+
+    background-image:
+            url("noise.svg");
+
+    opacity: 0.1;
+
+    pointer-events: none;
+
+    z-index: 999;
 }
 
 /* mobile */
