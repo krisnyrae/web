@@ -15,6 +15,20 @@ body {
     overflow-x: hidden;
 }
 
+body::before,
+body::after {
+    content: "";
+
+    position: fixed;
+    border-radius: 50%;
+
+    filter: blur(180px);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
 p, span {
     cursor: help;
 }
@@ -24,127 +38,55 @@ p, span {
 .background-glow {
     position: fixed;
     inset: 0;
-
+    z-index: -2;
     overflow: hidden;
 
-    z-index: -2;
-
     background:
-            radial-gradient(
-                    circle at 15% 20%,
-                    rgba(255,255,255,0.08),
-                    transparent 25%
-            ),
+            #050505;
 
-            radial-gradient(
-                    circle at 85% 30%,
-                    rgba(255,255,255,0.05),
-                    transparent 30%
-            ),
-
-            radial-gradient(
-                    circle at 50% 80%,
-                    rgba(255,255,255,0.04),
-                    transparent 35%
-            ),
-
-            linear-gradient(
-                    to bottom,
-                    #050505,
-                    #080808,
-                    #050505
-            );
-
-    filter: blur(40px);
-
-    animation:
-            glowShift 18s ease-in-out infinite alternate;
+    animation: bgBreath 8s ease-in-out infinite alternate;
 }
 
 .background-glow::before,
 .background-glow::after {
     content: "";
-
     position: absolute;
+    inset: -20%;
 
-    width: 60vw;
-    height: 60vw;
-
-    border-radius: 50%;
-
-    filter: blur(120px);
-
-    opacity: 0.12;
-
-    mix-blend-mode: screen;
+    pointer-events: none;
 }
 
 .background-glow::before {
-    top: -10%;
-    left: -10%;
-
     background:
-            radial-gradient(
-                    circle,
-                    rgba(255,255,255,0.18),
-                    transparent 70%
-            );
+            radial-gradient(circle at 40% 40%, rgba(255,255,255,0.22), transparent 15%);
 
-    animation:
-            floatGlow1 22s ease-in-out infinite alternate;
+    filter: blur(200px);
+
+    animation: floatGlow1 6s ease-in-out infinite alternate;
 }
 
 .background-glow::after {
-    bottom: -20%;
-    right: -10%;
-
     background:
-            radial-gradient(
-                    circle,
-                    rgba(255,255,255,0.12),
-                    transparent 70%
-            );
+            radial-gradient(circle at 60% 60%, rgba(255,255,255,0.16), transparent 10%);
 
-    animation:
-            floatGlow2 28s ease-in-out infinite alternate;
+    filter: blur(220px);
+
+    animation: floatGlow2 7s ease-in-out infinite alternate;
 }
 
-@keyframes glowShift {
-    0% {
-        transform: scale(1) rotate(0deg);
-    }
-
-    100% {
-        transform: scale(1.08) rotate(2deg);
-    }
+@keyframes bgBreath {
+    from { transform: scale(1); opacity: 0.95; }
+    to   { transform: scale(1.03); opacity: 1; }
 }
 
 @keyframes floatGlow1 {
-    0% {
-        transform:
-                translate(0, 0)
-                scale(1);
-    }
-
-    100% {
-        transform:
-                translate(10%, 5%)
-                scale(1.2);
-    }
+    from { transform: translate(-5%, -5%) scale(1); }
+    to   { transform: translate(18%, 10%) scale(1.4); }
 }
 
 @keyframes floatGlow2 {
-    0% {
-        transform:
-                translate(0, 0)
-                scale(1);
-    }
-
-    100% {
-        transform:
-                translate(-10%, -5%)
-                scale(1.15);
-    }
+    from { transform: translate(8%, 6%) scale(1); }
+    to   { transform: translate(-15%, -12%) scale(1.35); }
 }
 
 /* hero */
@@ -186,8 +128,61 @@ p, span {
     padding: 80px 40px 140px;
 
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 60px;
+}
+
+.music-card {
+    width: 100%;
+    max-width: 650px;
+
+    justify-self: center;
+
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.section-title {
+    grid-column: 1 / -1;
+
+    position: relative;
+
+    margin: 40px 0 20px;
+
+    text-align: center;
+
+    font-size: clamp(28px, 4vw, 56px);
+    font-weight: 800;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+
+    color: rgba(255,255,255,0.95);
+
+    text-shadow:
+            0 0 20px rgba(255,255,255,0.15),
+            0 0 40px rgba(255,255,255,0.08);
+}
+
+.section-title::after {
+    content: "";
+
+    position: absolute;
+    left: 50%;
+    bottom: -12px;
+
+    width: 140px;
+    height: 1px;
+
+    transform: translateX(-50%);
+
+    background:
+            linear-gradient(
+                    to right,
+                    transparent,
+                    rgba(255,255,255,0.4),
+                    transparent
+            );
 }
 
 /* cards */
@@ -294,7 +289,12 @@ p, span {
 
     text-align: center;
 
-    opacity: 0.6;
+    opacity: 0.5;
+}
+
+.footer span {
+    text-decoration: underline wavy rgba(255, 255, 255, 0.49) 1px;
+    text-underline-offset: 3px;
 }
 
 .socials {
