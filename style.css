@@ -332,6 +332,64 @@ p, span {
     z-index: 999;
 }
 
+/* contact */
+
+#contact {
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.contact-container {
+    max-width: 700px;
+    width: 100%;
+}
+
+#contact h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+#contact p {
+    opacity: 0.8;
+    margin-bottom: 30px;
+}
+
+#contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#contact input,
+#contact textarea {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    outline: none;
+    background: rgba(14, 14, 14, 0.66);
+    color: inherit;
+}
+
+#contact textarea {
+    resize: none;
+}
+
+#contact button {
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+#contact button:hover {
+    transform: scale(1.03);
+}
+
 /* mobile */
 
 @media (max-width: 700px) {
