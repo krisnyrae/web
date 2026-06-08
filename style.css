@@ -369,7 +369,7 @@ p, span {
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     outline: none;
-    background: rgba(14, 14, 14, 0.66);
+    background: transparent;
     color: inherit;
 }
 
