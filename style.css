@@ -62,6 +62,48 @@ p, span {
     text-transform: uppercase;
 }
 
+/* navigation */
+
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+
+    padding: 20px;
+    margin-top: 10px;
+
+    flex-wrap: wrap;
+}
+
+.nav a {
+    padding: 8px 14px;
+
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 999px;
+
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    transition: 0.3s ease;
+}
+
+.nav a:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255,255,255,0.25);
+    color: #fff;
+}
+
+.nav a:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
 /* container */
 
 .container {
