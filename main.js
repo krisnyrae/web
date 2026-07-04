@@ -31,3 +31,23 @@ form.addEventListener("submit", function (e) {
             alert(JSON.stringify(error));
         });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const openBtn = document.getElementById("news-button");
+    const overlay = document.getElementById("news-overlay");
+    const closeBtn = document.getElementById("close-news");
+
+    openBtn.addEventListener("click", () => {
+        overlay.classList.remove("hidden");
+    });
+
+    closeBtn.addEventListener("click", () => {
+        overlay.classList.add("hidden");
+    });
+
+    overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) {
+            overlay.classList.add("hidden");
+        }
+    });
+});
