@@ -635,10 +635,14 @@ p, span {
     border: 1px solid rgba(255,255,255,.15);
     border-radius: 999px;
 
-    color: white;
+    background: rgba(0,0,0,.05);
+    font-size: 12px;
+    font-weight: 500;
+
+    color: rgba(255,255,255,.70);
     text-decoration: none;
 
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 
     transition:
             background .3s ease,
