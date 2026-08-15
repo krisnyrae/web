@@ -216,7 +216,7 @@ p, span {
     align-items: center;
     gap: 14px;
 
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 700;
     letter-spacing: 1px;
 }
@@ -224,11 +224,15 @@ p, span {
 /* logos */
 
 .release-name {
-    font-size: 27px;
+    font-size: 32px;
 
     transition:
             transform 0.3s ease,
             filter 0.3s ease;
+
+    text-shadow:
+            0 0 20px rgba(255,255,255,0.3),
+            0 0 40px rgba(255,255,255,0.16);
 }
 
 .release-name:hover {
@@ -326,7 +330,7 @@ p, span {
 
     opacity: 0.1;
     pointer-events: none;
-    z-index: 999;
+    z-index: -1;
 }
 
 /* news card */
@@ -623,6 +627,11 @@ p, span {
 .price {
     font-size: 28px;
     font-weight: 800;
+}
+
+.price-depend {
+    font-size: 20px;
+    font-weight: 900;
 }
 
 .buy-button {
